@@ -1,0 +1,28 @@
+employee = Employee()
+employee.gender = 'male'
+employee1.title = 'Mr.'
+employee1.givenName = 'John'
+employee1.middleInitial = 'M'
+employee1.surname = 'Doe'
+employee1.birthday = '01/01/2000'
+employee.city = 
+
+
+city = City()
+city.name = "utopia"
+city.state = "utopia"
+city.zipcode = "UTO PIA"
+
+
+{
+    "id": 25,
+    "city": "Ottawa",
+    "state": "ON",
+    "zipcode": "K1G 0Z2",
+    "gender": "male",
+    "title": "Mr.",
+    "givenName": "Eric",
+    "middleInitial": "M",
+    "surname": "Bonanno",
+    "birthday": "1971-07-16"
+}
