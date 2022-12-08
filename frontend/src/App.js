@@ -2,9 +2,7 @@
 import './App.css';
 import {useState, useEffect} from 'react';
 import {BrowserRouter as Router, Route, Switch} from 'react-router-dom';
-import Create from './Create';
 import Home from './Home';
-import Footer from './footer';
 import Header from './Header';
 
 
@@ -99,9 +97,8 @@ function App() {
         setEditing(false);
       }
       else{
-        const newEmployee = {...employee}
         //update UI with new addition
-        const addedEmployee = {"id": null, ...employee};
+        
         setList([...list, employee]);
         alert_of("green", "User added successfully!")
       }
@@ -153,7 +150,6 @@ function App() {
         middleInitial: employee.middleInitial,
         surname: employee.surname,
         birthday: employee.birthday,
-        title: employee.title,
         city: employee.city,
         state: employee.state,
         zipcode: employee.zipcode,

@@ -122,7 +122,7 @@ const Create = ({ handleSubmit, employee}) => {
                     <div className="form-group">  
                     <input className="form-control btn-primary" type="submit" id="submit" value="Submit" />
                     </div>
-                    <div className="form-group col-md-6" >
+                    <div className="form-group" >
                         <div id="alerts" style={{display: 'none'}}></div>
                     </div>
                 </div>
