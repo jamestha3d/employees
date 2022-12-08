@@ -3,9 +3,9 @@ const Header = () => {
     return (
         <div className="header">
             <nav>
-            <a href="#s"> Employee Data</a>
+            <a href="#"> Employees List</a>
             </nav>
-        </div>
+        </div> 
     );
 }
  

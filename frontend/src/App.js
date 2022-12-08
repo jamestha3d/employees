@@ -67,7 +67,7 @@ function App() {
         () => {
           alerts.style.display = "none";
         },
-        2000
+        3000
       );
     }
 
@@ -163,7 +163,7 @@ function App() {
 
       setList(list.filter((item) => item.id !== employee.id))
 
-      fetch(`http://127.0.0.1:8000/api/delete/${employee.id}/`, {
+      fetch(`/api/delete/${employee.id}/`, {
         method: 'DELETE',
         headers: {
           'Content-type': 'application/json',
