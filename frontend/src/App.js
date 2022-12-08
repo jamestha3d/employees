@@ -55,7 +55,23 @@ function App() {
       return cookieValue;
     }
 
+    function alert_of(type, message){
 
+      const alerts = document.querySelector('#alerts');
+      alerts.style.display = "block";
+      alerts.innerHTML = message
+      alerts.style.color = type;
+      console.log((type))
+      //inject alert into div
+      //wait 3 seconds
+      //remove alert
+      setTimeout(
+        () => {
+          alerts.style.display = "none";
+        },
+        2000
+      );
+    }
 
     function handleSubmit(employee) {
       console.log(employee)
@@ -79,11 +95,15 @@ function App() {
         })
         
         setList(newList);
+        alert_of("blue", "User Edited!");
         setEditing(false);
       }
       else{
         const newEmployee = {...employee}
-        //add row to table
+        //update UI with new addition
+        const addedEmployee = {"id": null, ...employee};
+        setList([...list, employee]);
+        alert_of("green", "User added successfully!")
       }
       fetch(url, {
         method: 'POST',
@@ -133,6 +153,7 @@ function App() {
         middleInitial: employee.middleInitial,
         surname: employee.surname,
         birthday: employee.birthday,
+        title: employee.title,
         city: employee.city,
         state: employee.state,
         zipcode: employee.zipcode,
@@ -174,21 +195,13 @@ function App() {
       <Router>
         <div className="App">
         <Header />
+        
         </div>
         <div className="container">
           <Switch>
             <Route exact path="/">
               {loading && <h1> Loading. . .</h1>}
               {list && <Home employees={list} handleSubmit={handleSubmit} deleteEmployee={deleteEmployee} startEdit={startEdit} editclicked={editclicked}/>}
-            </Route>
-            <Route path="/create">
-              <Create handleSubmit={handleSubmit} />
-            </Route>
-            <Route path="/employee">
-              <h1> Employees</h1>
-            </Route>
-            <Route path="/home">
-              <Home employees={list} handleSubmit={handleSubmit} deleteEmployee={deleteEmployee} startEdit={startEdit}/>
             </Route>
           </Switch>
             

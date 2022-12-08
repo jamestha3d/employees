@@ -3,7 +3,7 @@ const Header = () => {
     return (
         <div className="header">
             <nav>
-            <a> Employee Data</a>
+            <a href="#s"> Employee Data</a>
             </nav>
         </div>
     );
