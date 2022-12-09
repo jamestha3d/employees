@@ -2,6 +2,8 @@
 
 This app uses React on the front end and Python Django on the backend. Postgresql for the Database
 
+Clone project and cd into the directory.
+
 ## Install node modules
 install node modules by going into the frontend folder and run
 
@@ -10,10 +12,12 @@ npm install
 npm run build
 ```
 
-Make sure python is installed, clone project and cd into the directory.
+Make sure python is installed, 
 
 
 ## Install Python requirements
+Navigate to the root, same level as manage.py
+
 run
 
 ```
