@@ -20,7 +20,7 @@ def main():
         bday = datetime.date(int(birthday[2]), int(birthday[0]), int(birthday[1]))
         employee = Employee(gender=Gender, title=Title, givenName=GivenName, middleInitial=MiddleInitial, surname=Surname, city = city, birthday = Birthday)
         employee.save()
-    
+    f.close()
 
 if __name__ == "__main__":
 	main()
