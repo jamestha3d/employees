@@ -7,6 +7,7 @@ def main():
     reader = csv.reader(f)
     beginning = True
     cities = []
+    print("Loading csv file into database....")
     for Gender, Title, GivenName, MiddleInitial, Surname, City2, State, ZipCode, Birthday in reader:
         if beginning:
             beginning = False
@@ -23,7 +24,24 @@ def main():
         #print(cities)
         #print(employee)
         employee.save()
-    
+
+    print("Loading completed....")
+    f.close()
+
+
+def empty_db():
+    employees = Employee.objects.all()
+    print("Deleting employees...")
+    employees.delete()
+    cities = City.objects.all()
+    print("Deleting Cities...")
+    cities.delete()
+    print("Database Cleared...")
+
+def reload_db():
+    empty_db()
+    main()
+    print("DB reloaded")
 
 if __name__ == "__main__":
 	main()
