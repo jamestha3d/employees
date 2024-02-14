@@ -2,7 +2,7 @@ import csv
 from employees.models import Employee, City
 import datetime
 
-def main():
+def load_db():
     f = open("employee-list.csv")
     reader = csv.reader(f)
     beginning = True
@@ -40,9 +40,11 @@ def empty_db():
 
 def reload_db():
     empty_db()
-    main()
+    load_db()
     print("DB reloaded")
 
+def main():
+    reload_db()
 if __name__ == "__main__":
 	main()
 

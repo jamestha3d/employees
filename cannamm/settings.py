@@ -140,7 +140,7 @@ STATIC_URL = 'static/'
 
 STATICFILES_DIRS = [
     os.path.join(BASE_DIR, 'frontend/build/static')
-]
+] #tell django where to find the static files after npm run build so we do not have to run a separate react server
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 

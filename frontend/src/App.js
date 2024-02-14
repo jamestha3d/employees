@@ -27,7 +27,7 @@ function App() {
   const fetchEmployees = () => {
     console.log('Fetching...');
 
-    fetch('http://127.0.0.1:8000/api/employees')
+    fetch('api/employees')
       .then(response => response.json())
       .then(data => {
         setList(data);
@@ -59,7 +59,7 @@ function App() {
     alerts.style.display = "block";
     alerts.innerHTML = message
     alerts.style.color = type;
-    console.log((type))
+    //console.log((type))
     //inject alert into div
     //wait 3 seconds
     //remove alert
@@ -72,15 +72,15 @@ function App() {
   }
 
   function handleSubmit(employee) {
-    console.log(employee)
+    //console.log(employee)
     const csrftoken = getCookie('csrftoken');
 
-    var url = 'http://127.0.0.1:8000/api/create/'
+    var url = 'api/create/'
 
 
 
     if (editing) {
-      url = `http://127.0.0.1:8000/api/update/${clickedId}/`;
+      url = `api/update/${clickedId}/`;
       //udpate UI with changes
       const editedEmployee = { "id": clickedId, ...employee };
       const newList = list.map((employee) => {
@@ -155,7 +155,7 @@ function App() {
       zipcode: employee.zipcode,
     })
     setEditing(true)
-    console.log(activeItem, editing)
+    //console.log(activeItem, editing)
   }
 
   function deleteEmployee(employee) {
@@ -163,7 +163,7 @@ function App() {
 
     setList(list.filter((item) => item.id !== employee.id))
 
-    fetch(`http://127.0.0.1:8000/api/delete/${employee.id}/`, {
+    fetch(`api/delete/${employee.id}/`, {
       method: 'DELETE',
       headers: {
         'Content-type': 'application/json',

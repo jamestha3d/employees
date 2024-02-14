@@ -45,10 +45,10 @@ def employeeCreate(request):
     if not city:
         city_serializer = CitySerializer(data=cityData)
         if city_serializer.is_valid():
-            city_serializer.save()
-            city_id = City.objects.get(name=cityData["name"], state=cityData["state"], zipcode=cityData["zipcode"]).id
-    else:
-        city_id = city[0].id
+            city = city_serializer.save()
+    #         city_id = City.objects.get(name=cityData["name"], state=cityData["state"], zipcode=cityData["zipcode"]).id
+    # else:
+    #     city_id = city[0].id
 
     title = data["title"]
     givenName = data["givenName"]
@@ -56,7 +56,7 @@ def employeeCreate(request):
     middleInitial = data["middleInitial"]
     gender=  data["gender"]
     bday  = data["birthday"]
-    city = City.objects.get(pk=city_id)
+    #city = City.objects.get(pk=city_id)
 
     #using object instance to save employee
     employee = Employee(gender=gender, title=title, givenName=givenName, middleInitial=middleInitial, surname=surname, city=city, birthday=bday)
@@ -74,25 +74,22 @@ def employeeUpdate(request, pk):
         "state": data["state"],
         "zipcode": data["zipcode"]
     }
-    city = City.objects.filter(name=cityData["name"], state=cityData["state"], zipcode=cityData["zipcode"])
+    city = City.objects.filter(name=cityData["name"], state=cityData["state"], zipcode=cityData["zipcode"]).first()
 
     if not city:
         city_serializer = CitySerializer(data=cityData)
         if city_serializer.is_valid():
-            city_serializer.save()
-            city_id = City.objects.get(name=cityData["name"], state=cityData["state"], zipcode=cityData["zipcode"]).id
-    else:
-        city_id = city[0].id
+            city = city_serializer.save()
 
-    city = City.objects.get(pk=city_id)
+    #city = City.objects.get(pk=city_id)
 
-    employee.givenName = data["givenName"]
-    employee.gender = data["gender"]
-    employee.birthday = data["birthday"]
-    employee.title = data["title"]
-    employee.middleInitial = data["middleInitial"]
-    employee.surname = data["surname"]
-    employee.city = city
+    # employee.givenName = data["givenName"]
+    # employee.gender = data["gender"]
+    # employee.birthday = data["birthday"]
+    # employee.title = data["title"]
+    # employee.middleInitial = data["middleInitial"]
+    # employee.surname = data["surname"]
+    # employee.city = city
     
 
    
